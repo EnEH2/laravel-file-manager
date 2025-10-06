@@ -1,6 +1,12 @@
 {
   "name": "EnEH2/laravel-filemanager",
   "description": "A Laravel package for managing uploaded files system-wide.",
+  "authors": [
+    {
+      "name": "emon233",
+      "email": "sazid.hossain.1433@gmail.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "EnEH2\\FileManager\\": "src/"
@@ -15,5 +21,9 @@
         "EnEH2\\FileManager\\FileManagerServiceProvider"
       ]
     }
+  },
+  "require": {
+    "php": "^8.3",
+    "illuminate/support": "^12.0"
   }
 }
