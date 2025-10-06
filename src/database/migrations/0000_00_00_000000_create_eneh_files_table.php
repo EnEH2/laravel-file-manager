@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('model_id', 100)->nullable();
             $table->string('auth_type')->nullable();
             $table->string('auth_id', 100)->nullable();
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }
