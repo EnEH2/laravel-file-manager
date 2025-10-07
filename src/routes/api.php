@@ -1,9 +1,10 @@
 <?php
 
+use EnEH2\FileManager\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/eneh2-filemanager-test', function () {
-    return "!! Hello World !!";
+Route::name('eneh-filemanager')->prefix('/eneh-filemanager')->group(function () {
+    Route::post('/upload', [FileController::class, 'store'])->name('upload');
 });
 
