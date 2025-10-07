@@ -10,7 +10,7 @@ class FileManagerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/eneh-filemanager.php', 'eneh-filemanager'
+            __DIR__ . '/config/eneh-filemanager.php', 'eneh-filemanager'
         );
     }
 
@@ -21,7 +21,7 @@ class FileManagerServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->publishes([
-            __DIR__ . '/../config/eneh-filemanager.php' => config_path('eneh-filemanager.php'),
+            __DIR__ . '/config/eneh-filemanager.php' => config_path('eneh-filemanager.php'),
         ], 'eneh-filemanager-config');
     }
 }
