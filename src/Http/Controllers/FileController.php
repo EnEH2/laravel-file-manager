@@ -11,10 +11,10 @@ class FileController extends Controller
     public function upload(Request $request)
     {
         try {
-            $disk = config('filemanager.disk', 'public');
-            $basePath = config('filemanager.base_path', 'uploads') . '/' . date('Y-m-d');
-            $maxSize = config('filemanager.max_size', 50) * 1024; // convert MB → KB
-            $allowed = config('filemanager.allowed_extensions', []);
+            $disk = config('eneh-filemanager.disk', 'public');
+            $basePath = config('eneh-filemanager.base_path', 'uploads') . '/' . date('Y-m-d');
+            $maxSize = config('eneh-filemanager.max_size', 50) * 1024; // convert MB → KB
+            $allowed = config('eneh-filemanager.allowed_extensions', []);
 
             // --- Validate request ---
             $request->validate([
@@ -49,7 +49,7 @@ class FileController extends Controller
                 'file' => $fileRecord ?? [
                     'name' => $file->getClientOriginalName(),
                     'path' => $path,
-                    'url' => config('filemanager.url_prefix', '/storage') . '/' . $path,
+                    'url' => config('eneh-filemanager.url_prefix', '/storage') . '/' . $path,
                 ],
             ], 201);
         } catch (\Exception $ex) {
