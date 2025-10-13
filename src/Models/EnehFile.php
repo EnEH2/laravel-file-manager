@@ -60,7 +60,9 @@ class EnehFile extends Model
      */
     public function getFileUrlAttribute()
     {
-        return config('eneh-filemanager.url_prefix', '/storage') . '/' . $this->path;
+        $path = config('eneh-filemanager.url_prefix', '/storage') . '/' . $this->path;
+
+        return asset($path);
     }
 
 
