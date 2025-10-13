@@ -13,15 +13,15 @@ class FileController extends Controller
         try {
             $disk = config('eneh-filemanager.disk', 'public');
             $basePath = config('eneh-filemanager.base_path', 'uploads') . '/' . date('Y-m-d');
-            $maxSize = config('eneh-filemanager.max_size', 50) * 1024; // convert MB → KB
+            $maxSize = config('eneh-filemanager.max_size', 50) * 1024;
             $allowed = config('eneh-filemanager.allowed_extensions', []);
 
-            // --- Validate request ---
+
             $request->validate([
                 'file' => [
                     'required',
                     'file',
-                    'max:' . $maxSize, // Laravel max rule uses kilobytes
+                    'max:' . $maxSize,
                     function ($attribute, $value, $fail) use ($allowed) {
                         if (!in_array(strtolower($value->getClientOriginalExtension()), $allowed)) {
                             $fail('This file type is not allowed.');

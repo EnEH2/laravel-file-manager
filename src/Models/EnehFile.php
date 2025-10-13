@@ -44,6 +44,27 @@ class EnehFile extends Model
 
 
     /**
+     * Appendable columns
+     *
+     * @var array
+     */
+    public $appends = [
+        'file_url'
+    ];
+
+
+    /**
+     * file_url
+     *
+     * @return string
+     */
+    public function getFileUrlAttribute()
+    {
+        return config('eneh-filemanager.url_prefix', '/storage') . '/' . $this->path;
+    }
+
+
+    /**
      * Relation with Related Model
      *
      * @return MorphTo
