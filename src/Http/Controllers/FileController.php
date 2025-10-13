@@ -53,7 +53,27 @@ class FileController extends Controller
                 ],
             ], 201);
         } catch (\Exception $ex) {
-            \Log::info("EnEH2 File Manager Error: " . $ex->getMessage());
+            \Log::info("EnEH2 File Manager Error (Upload): " . $ex->getMessage());
+            return response()->json(false);
+        }
+
+        return response()->json(false);
+    }
+
+
+    public function show(Request $request)
+    {
+        try {
+            $uuid = $request->uuid;
+
+            $enehFile = EnehFile::findByUuid($uuid);
+
+            return response()->json([
+                'success' => true,
+                'file' => $enehFile
+            ], 200);
+        } catch (\Exception $ex) {
+            \Log::info("EnEH2 File Manager Error (Show): " . $ex->getMessage());
             return response()->json(false);
         }
 

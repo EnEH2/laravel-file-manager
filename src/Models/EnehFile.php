@@ -84,4 +84,16 @@ class EnehFile extends Model
     {
         return $this->morphTo();
     }
+
+
+    /**
+     * Find by Uuid
+     *
+     * @param string $uuid
+     * @return static|null
+     */
+    public static function findByUuid($uuid)
+    {
+        return static::where('uuid', $uuid)->firstOrFail();
+    }
 }
